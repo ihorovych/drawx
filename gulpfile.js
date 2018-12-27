@@ -47,3 +47,5 @@ function watcher() {
 }
 
 gulp.task('start', gulp.series(compileSass, copyHtml, copyScript, browserSyncInit, watcher))
+
+gulp.task('build', gulp.series(compileSass, minifyCss, copyHtml, copyScript))
