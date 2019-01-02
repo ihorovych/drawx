@@ -13,19 +13,15 @@ class Canvas extends React.Component {
     this.startDrawing = this.startDrawing.bind(this)
     this.stopDrawing = this.stopDrawing.bind(this)
     this.drawLine = this.drawLine.bind(this)
-
-    // this.responsiveCanvas = this.responsiveCanvas.bind(this)
-    // this.updateCanvasSize = this.updateCanvasSize.bind(this)
   }
 
   componentDidMount() {
     this.canvas = this.canvasDOM.current
-    this.canvas.width = window.innerWidth
-    this.canvas.height = window.innerHeight - 18
+    this.canvas.width = window.innerWidth - 75
+    this.canvas.height = window.innerHeight
 
     this.ctx = this.canvas.getContext('2d')
     this.addCanvasEventListeners()
-    // this.responsiveCanvas()
   }
 
   addCanvasEventListeners() {
@@ -37,25 +33,6 @@ class Canvas extends React.Component {
     this.canvas.addEventListener('touchend', this.stopDrawing)
     this.canvas.addEventListener('touchmove', this.drawLine)
   }
-
-  // responsiveCanvas() {
-  //   this.updateCanvasSize()
-  //   window.addEventListener('resize', this.updateCanvasSize)
-  // }
-
-  // updateCanvasSize(h = 0, w = 0) {
-  //   console.log('i w', window.innerWidth)
-  //   console.log('i h', window.innerHeight)
-  //   console.log('b w', this.canvas.width)
-  //   console.log('b h',this.canvas.height)
-  //   if ( this.canvas.width !== window.innerWidth - w) this.canvas.width = window.innerWidth - w
-  //   if ( this.canvas.height !== window.innerHeight - h) this.canvas.height = window.innerHeight - h
-  //   // this.canvas.width = window.innerWidth - w
-  //   // this.canvas.height = window.innerHeight - h
-  //   console.log('a w',this.canvas.width)
-  //   console.log('a h',this.canvas.height)
-  //   console.log('------------------------')
-  // }
 
   startDrawing() {
     this.isBrushDown = true
@@ -73,11 +50,11 @@ class Canvas extends React.Component {
 
       const position = { X: 0, Y: 0 }
       if (e.changedTouches) {
-        position.Y = e.changedTouches[0].clientY - 20
-        position.X = e.changedTouches[0].clientX
+        position.Y = e.changedTouches[0].clientY
+        position.X = e.changedTouches[0].clientX - 75
       } else {
-        position.Y = e.clientY - 20
-        position.X = e.clientX
+        position.Y = e.clientY
+        position.X = e.clientX - 75
       }
 
       ctx.fillStyle = brush.color

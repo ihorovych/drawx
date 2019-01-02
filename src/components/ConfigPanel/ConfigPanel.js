@@ -1,8 +1,15 @@
-import React from 'react';
+import React from 'react'
+import style from './ConfigPanel.scss'
 
-const ConfigPanel = () => {
+import BrushSize from 'components/BrushSize'
+import ColorConfig from 'components/ColorConfig'
+
+const ConfigPanel = ({ setBrushConfig, brush }) => {
   return (
-    <div>ConfigPanel</div>
+    <div className={style['wrap']}>
+      <ColorConfig setBrushConfig={setBrushConfig} />
+      <BrushSize brush={brush} setBrushConfig={setBrushConfig} />
+    </div>
   )
 }
 

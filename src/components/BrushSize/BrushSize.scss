@@ -1,0 +1,24 @@
+
+.wrap {
+  width: 75px;
+}
+
+.canvas-wrap {
+  background: white;
+  width: 75px;
+  height: 75px;
+}
+
+.canvas {
+  position: absolute;
+  display: block;
+  width: 75px;
+  height: 75px;
+}
+
+.brush-size {
+  -webkit-appearance: none;
+
+  width: 75px;
+  height: 10px;
+}
