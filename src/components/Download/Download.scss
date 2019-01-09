@@ -1,0 +1,13 @@
+.button {
+  background: limegreen;
+  cursor: pointer;
+  padding: 2px;
+  border: solid 1px black;
+  text-decoration: none;
+  display: block;
+  color: black;
+
+  &:hover {
+    background: lime;
+  }
+} 

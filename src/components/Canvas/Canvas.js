@@ -41,6 +41,7 @@ class Canvas extends React.Component {
   stopDrawing() {
     this.isBrushDown = false
     this.ctx.beginPath()
+    this.props.setImageDataUrl(this.canvasDOM.current.toDataURL('image/png'))
   }
 
   drawLine(e) {

@@ -32,6 +32,7 @@ class ColorConfig extends React.Component {
         {colors.map(color => {
           return (
             <div
+              key={color}
               className={style['color']}
               style={{ background: color }}
               onClick={this.setBrushColor(color)}

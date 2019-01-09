@@ -12,22 +12,35 @@ class Root extends React.Component {
       brush: {
         color: 'black',
         size: 10,
-      }
+      },
+      imageDataUrl: '',
     }
 
     this.setBrushConfig = this.setBrushConfig.bind(this)
+    this.setImageDataUrl = this.setImageDataUrl.bind(this)
   }
 
   setBrushConfig(newBrush) {
     this.setState(state => ({ brush: { ...state.brush, ...newBrush } }))
   }
 
+  setImageDataUrl(imageDataUrl) {
+    this.setState({ imageDataUrl })
+  }
+
   render() {
-    const { brush } = this.state
+    const { brush, imageDataUrl } = this.state
     return (
       <div className={style['wrap']}>
-        <ConfigPanel brush={brush} setBrushConfig={this.setBrushConfig}/>
-        <Canvas brush={brush} />
+        <ConfigPanel
+          brush={brush}
+          imageDataUrl={imageDataUrl}
+          setBrushConfig={this.setBrushConfig}
+          />
+        <Canvas
+          brush={brush}
+          setImageDataUrl={this.setImageDataUrl}
+        />
       </div>
     );
   }
